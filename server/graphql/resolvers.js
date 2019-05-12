@@ -24,6 +24,6 @@ async function getRestaurants(park) {
 
 exports.resolvers = {
   Query: {
-    getAllRestaurants: ({ park }) => getRestaurants(park)
+    getAllRestaurants: async (parent, { park }) => await getRestaurants(park)
   }
 };

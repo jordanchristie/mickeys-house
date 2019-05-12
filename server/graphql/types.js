@@ -10,7 +10,7 @@ exports.typeDefs = gql`
     name: String!
     permalink: String!
     category: String!
-    cuisine: String!
+    cuisine: String
     phone: String
     price: String
     dress: String
