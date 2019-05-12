@@ -1,9 +1,0 @@
-{
-  "name": "mickeys-house",
-  "version": "1.0.0",
-  "description": "A PWA for navigating and reserving at The Most Magical Place on Earth",
-  "main": "index.js",
-  "repository": "git@github.com:jordanchristie/mickeys-house.git",
-  "author": "Jordan Christie <jordanchristie116@gmail.com>",
-  "license": "MIT"
-}
