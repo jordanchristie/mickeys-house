@@ -1,8 +1,9 @@
 const { gql } = require("apollo-server");
 
-exports.typeDefs = gql`
+module.exports.typeDefs = gql`
   type Query {
     getAllRestaurants(park: String!): [Restaurant]
+    getAllAttractions: [Attraction]
   }
 
   type Restaurant {
@@ -20,5 +21,11 @@ exports.typeDefs = gql`
     dinner: String
     atmosphere: String
     specialties: String
+  }
+
+  type Attraction {
+    name: String!
+    short_name: String!
+    permalink: String!
   }
 `;
