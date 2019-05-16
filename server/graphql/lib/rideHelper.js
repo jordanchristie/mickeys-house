@@ -1,7 +1,12 @@
 const Themeparks = require("themeparks");
 
+// WaltDisneyWorldMagicKingdom
+// WaltDisneyWorldEpcot
+// WaltDisneyWorldHollywoodStudios
+// WaltDisneyWorldAnimalKingdom
+
 module.exports.getWaitTimes = async function(park) {
-  const selectedPark = new Themeparks.Parks.WaltDisneyWorldMagicKingdom();
+  const selectedPark = new Themeparks.Parks.WaltDisneyWorldEpcot();
 
   const res = await selectedPark.GetWaitTimes();
   const data = res.map(ride => {
@@ -16,5 +21,5 @@ module.exports.getWaitTimes = async function(park) {
     };
   });
 
-  console.log(data);
+  return data;
 };

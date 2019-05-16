@@ -4,12 +4,14 @@ module.exports.typeDefs = gql`
   type Query {
     getAllRestaurants(park: String!): [Restaurant]
     getAllAttractions: [Attraction]
+    getAllRides: [Ride]
   }
 
   type Restaurant {
     id: Int!
     name: String!
     permalink: String!
+    selection: String
     category: String!
     cuisine: String
     phone: String
@@ -27,5 +29,13 @@ module.exports.typeDefs = gql`
     name: String!
     short_name: String!
     permalink: String!
+  }
+
+  type Ride {
+    id: String!
+    name: String!
+    status: String!
+    waitTime: Int!
+    fastPass: Boolean!
   }
 `;

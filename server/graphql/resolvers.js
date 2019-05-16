@@ -18,6 +18,7 @@ getWaitTimes();
 module.exports.resolvers = {
   Query: {
     getAllRestaurants: async (parent, { park }) => await getRestaurants(park),
-    getAllAttractions: async (parent, { park }) => await getAttractions(park)
+    getAllAttractions: async (parent, { park }) => await getAttractions(park),
+    getAllRides: async (parent, { park }) => await getWaitTimes(park)
   }
 };

@@ -8,6 +8,7 @@ module.exports.getRestaurants = async function(park) {
     id: restaurant.id,
     name: restaurant.name,
     permalink: restaurant.permalink,
+    selection: restaurant.selection,
     category: restaurant.category_code,
     cuisine: restaurant.cuisine,
     phone: restaurant.phone_number,
