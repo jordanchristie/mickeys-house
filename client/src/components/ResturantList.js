@@ -6,8 +6,8 @@ import { PageTitle, List, ListItem, Card } from "./styledComponents";
 const ReasturantList = ({ park }) => {
   return (
     <>
-      <PageTitle>Restaurants at {park}</PageTitle>
-      <Query query={GET_ALL_RESTAURANTS} variables={{ park }}>
+      <PageTitle>Restaurants at {park.name}</PageTitle>
+      <Query query={GET_ALL_RESTAURANTS} variables={park}>
         {({ data, loading, error }) => {
           if (loading) return <h1>Loading...</h1>;
           if (error) return <h1>Error...</h1>;

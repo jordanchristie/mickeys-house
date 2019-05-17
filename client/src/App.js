@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Header from "./components/Header";
 import ParkSelect from "./components/ParkSelect";
@@ -17,26 +17,53 @@ const GlobalStyle = createGlobalStyle`
     color: #333;
   }
 `;
-const parks = {
-  animalKingdom: "animal-kingdom",
-  epcot: "epcot",
-  hollywoodStudios: "hollywood-studios",
-  magicKingdom: "magic-kingdom"
-};
+const parks = [
+  {
+    id: 1,
+    name: "Magic Kingdom",
+    permalink: "magic-kingdom",
+    parkCall: "WaltDisneyWorldMagicKingdom"
+  },
+  {
+    id: 2,
+    name: "Epcot",
+    permalink: "epcot",
+    parkCall: "WaltDisneyWorldEpcot"
+  },
+  {
+    id: 3,
+    name: "Animal Kingdom",
+    permalink: "animal-kingdom",
+    parkCall: "WaltDisneyWorldAnimalKingdom"
+  },
+  {
+    id: 4,
+    name: "Hollywood Studios",
+    permalink: "hollywood-studios",
+    parkCall: "WaltDisneyWorldHollywoodStudios"
+  }
+];
 
 function App() {
+  const [selectedPark, selectPark] = useState(parks[0]);
+
+  console.log(selectedPark);
   return (
     <Wrapper>
       <Router>
         <>
           <GlobalStyle />
           <Header />
-          <ParkSelect />
+          <ParkSelect
+            parks={parks}
+            selectedPark={selectedPark}
+            selectPark={selectPark}
+          />
           <Switch>
             <Route
               exact
               path="/"
-              render={() => <RestaurantList park={parks.epcot} />}
+              render={() => <RestaurantList park={selectedPark} />}
             />
             <Route
               path="/restaurants/:id"
@@ -45,7 +72,7 @@ function App() {
             <Route
               exact
               path="/attractions"
-              render={() => <AttractionList park={parks.epcot} />}
+              render={() => <AttractionList park={selectedPark} />}
             />
           </Switch>
         </>

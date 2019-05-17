@@ -6,7 +6,7 @@ import { PageTitle, List, Card } from "./styledComponents";
 const AttractionList = ({ park }) => {
   return (
     <>
-      <PageTitle>Rides and Attractions at {park}</PageTitle>
+      <PageTitle>Rides and Attractions at {park.name}</PageTitle>
       <Query query={GET_ALL_RIDES} variable={park}>
         {({ data, loading, error }) => {
           if (loading) return <h1>Loading...</h1>;
