@@ -4,14 +4,14 @@ import { GET_ALL_RIDES } from "../queries";
 import { PageTitle, List, Card } from "./styledComponents";
 
 const AttractionList = ({ park }) => {
+  console.log(park);
   return (
     <>
       <PageTitle>Rides and Attractions at {park.name}</PageTitle>
-      <Query query={GET_ALL_RIDES} variable={park}>
+      <Query query={GET_ALL_RIDES} variable={park.parkCall}>
         {({ data, loading, error }) => {
           if (loading) return <h1>Loading...</h1>;
           if (error) return <h1>Error...</h1>;
-          console.log(data);
 
           return (
             <List>

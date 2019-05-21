@@ -32,8 +32,8 @@ export const GET_ALL_ATTRACTIONS = gql`
 `;
 
 export const GET_ALL_RIDES = gql`
-  query {
-    getAllRides {
+  query($park: String!) {
+    getAllRides(park: $park) {
       id
       name
       status

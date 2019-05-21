@@ -3,8 +3,8 @@ const { gql } = require("apollo-server");
 module.exports.typeDefs = gql`
   type Query {
     getAllRestaurants(park: String!): [Restaurant]
-    getAllAttractions: [Attraction]
-    getAllRides: [Ride]
+    getAllAttractions(park: String!): [Attraction]
+    getAllRides(park: String!): [Ride]
   }
 
   type Restaurant {
