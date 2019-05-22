@@ -7,7 +7,7 @@ const ReasturantList = ({ park }) => {
   return (
     <>
       <PageTitle>Restaurants at {park.name}</PageTitle>
-      <Query query={GET_ALL_RESTAURANTS} variables={park}>
+      <Query query={GET_ALL_RESTAURANTS} variables={{ park: park.permalink }}>
         {({ data, loading, error }) => {
           if (loading) return <h1>Loading...</h1>;
           if (error) return <h1>Error...</h1>;
@@ -16,12 +16,13 @@ const ReasturantList = ({ park }) => {
             <List>
               {data.getAllRestaurants.map(restaurant => (
                 <ListItem
+                  key={restaurant.id}
                   to={{
                     pathname: `/restaurants/${restaurant.id}`,
                     state: restaurant
                   }}
                 >
-                  <Card key={restaurant.id}>
+                  <Card>
                     <h1>{restaurant.name}</h1>
                     <p>{restaurant.selection}</p>
                   </Card>

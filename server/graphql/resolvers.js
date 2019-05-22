@@ -13,8 +13,6 @@ async function getAttractions(park) {
   }));
 }
 
-getWaitTimes();
-
 module.exports.resolvers = {
   Query: {
     getAllRestaurants: async (parent, { park }) => await getRestaurants(park),
