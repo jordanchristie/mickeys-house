@@ -2,6 +2,7 @@ import React from "react";
 import { Query } from "react-apollo";
 import { GET_ALL_RESTAURANTS } from "../queries";
 import { PageTitle, List, ListItem, Card } from "./styledComponents";
+import Loader from "./Loader";
 
 const ReasturantList = ({ park }) => {
   return (
@@ -9,7 +10,7 @@ const ReasturantList = ({ park }) => {
       <PageTitle>Restaurants at {park.name}</PageTitle>
       <Query query={GET_ALL_RESTAURANTS} variables={{ park: park.permalink }}>
         {({ data, loading, error }) => {
-          if (loading) return <h1>Loading...</h1>;
+          if (loading) return <Loader />;
           if (error) return <h1>Error...</h1>;
 
           return (

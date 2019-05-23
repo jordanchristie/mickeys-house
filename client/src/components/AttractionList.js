@@ -2,15 +2,15 @@ import React from "react";
 import { Query } from "react-apollo";
 import { GET_ALL_RIDES } from "../queries";
 import { PageTitle, List, Card } from "./styledComponents";
+import Loader from "./Loader";
 
 const AttractionList = ({ park }) => {
-  console.log(park.parkCall);
   return (
     <>
       <PageTitle>Rides and Attractions at {park.name}</PageTitle>
       <Query query={GET_ALL_RIDES} variables={{ park: park.parkCall }}>
         {({ data, loading, error }) => {
-          if (loading) return <h1>Loading...</h1>;
+          if (loading) return <Loader />;
           if (error) return <h1>Error...</h1>;
 
           return (

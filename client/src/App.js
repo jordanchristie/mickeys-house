@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Header from "./components/Header";
 import ParkSelect from "./components/ParkSelect";
+import ButtonSwitch from "./components/ButtonSwitch";
 import RestaurantList from "./components/ResturantList";
 import AttractionList from "./components/AttractionList";
 import RestaurantDetails from "./components/RestaurantDetails";
@@ -46,8 +47,8 @@ const parks = [
 
 function App() {
   const [selectedPark, selectPark] = useState(parks[0]);
+  const [queryType, changeQueryType] = useState("restaurants");
 
-  console.log(selectedPark);
   return (
     <Wrapper>
       <Router>
@@ -59,10 +60,13 @@ function App() {
             selectedPark={selectedPark}
             selectPark={selectPark}
           />
+          <ButtonSwitch
+            queryType={queryType}
+            changeQueryType={changeQueryType}
+          />
           <Switch>
             <Route
-              exact
-              path="/"
+              path="/restaurants"
               render={() => <RestaurantList park={selectedPark} />}
             />
             <Route
