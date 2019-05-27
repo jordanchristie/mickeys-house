@@ -28,5 +28,5 @@ const StyledSelect = styled.select`
   border: none;
   outline: 0;
   display: block;
-  margin: 5% auto;
+  margin: 5% auto 0;
 `;

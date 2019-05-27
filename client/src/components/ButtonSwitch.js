@@ -8,12 +8,12 @@ const ButtonSwitch = ({ queryType, changeQueryType }) => {
   };
   return (
     <ButtonWrap>
-      <Link to="restaurants">
+      <Link to="/restaurants">
         <Button value="restaurants" onClick={e => handleButtonSwitch(e)}>
           Restaurants
         </Button>
       </Link>
-      <Link to="attractions">
+      <Link to="/attractions">
         <Button value="attractions" onClick={e => handleButtonSwitch(e)}>
           Attractions & Rides
         </Button>

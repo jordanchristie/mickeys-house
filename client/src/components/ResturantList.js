@@ -3,6 +3,7 @@ import { Query } from "react-apollo";
 import { GET_ALL_RESTAURANTS } from "../queries";
 import { PageTitle, List, ListItem, Card } from "./styledComponents";
 import Loader from "./Loader";
+import Error from "./Error";
 
 const ReasturantList = ({ park }) => {
   return (
@@ -11,7 +12,7 @@ const ReasturantList = ({ park }) => {
       <Query query={GET_ALL_RESTAURANTS} variables={{ park: park.permalink }}>
         {({ data, loading, error }) => {
           if (loading) return <Loader />;
-          if (error) return <h1>Error...</h1>;
+          if (error) return <Error error={error} />;
 
           return (
             <List>

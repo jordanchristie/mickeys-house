@@ -1,8 +1,9 @@
 import React from "react";
 import { Query } from "react-apollo";
 import { GET_ALL_RIDES } from "../queries";
-import { PageTitle, List, Card } from "./styledComponents";
+import { PageTitle, List, Card, FastPass } from "./styledComponents";
 import Loader from "./Loader";
+import Error from "./Error";
 
 const AttractionList = ({ park }) => {
   return (
@@ -11,7 +12,7 @@ const AttractionList = ({ park }) => {
       <Query query={GET_ALL_RIDES} variables={{ park: park.parkCall }}>
         {({ data, loading, error }) => {
           if (loading) return <Loader />;
-          if (error) return <h1>Error...</h1>;
+          if (error) return <Error error={error} />;
 
           return (
             <List>
@@ -20,7 +21,12 @@ const AttractionList = ({ park }) => {
                   <h1>{ride.name}</h1>
                   <p>Status: {ride.status}</p>
                   <p>Wait Time: {ride.waitTime} minutes</p>
-                  <p>Fastpass: {ride.fastPass ? "Yes" : "No"}</p>
+                  <p>
+                    Fastpass:
+                    <FastPass true={ride.fastPass}>
+                      {ride.fastPass ? " Yes" : " No"}
+                    </FastPass>
+                  </p>
                 </Card>
               ))}
             </List>

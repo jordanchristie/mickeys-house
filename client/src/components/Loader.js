@@ -14,7 +14,7 @@ const Mouse = styled.div`
   width: 100px;
   border-radius: 50%;
   background: #000;
-  margin-top: 20%;
+  margin-top: 10%;
   transition: all 1s linear;
   animation: mickeyBounce 0.7s linear 0s infinite;
   &:before {

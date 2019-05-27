@@ -15,6 +15,7 @@ export const List = styled.section`
 export const Card = styled.article`
   background: linear-gradient(#4a62d8, #108ff7);
   border: none;
+  width: 90%;
   border-radius: 20px;
   text-align: center;
   padding: 10px;
@@ -76,4 +77,21 @@ export const Button = styled.button`
     color: #fff;
     box-shadow: 0px 5px 3px 5px rgba(0, 0, 0, 0.1);
   }
+`;
+
+export const Details = styled.section`
+  display: flex;
+  justify-content: center;
+  flex-flow: column;
+  margin: 0 auto;
+  text-align: center;
+  width: 70%;
+`;
+
+export const FastPass = styled.span`
+  color: ${props => (props.true ? "green" : "red")};
+`;
+
+export const ErrorMessage = styled.h3`
+  text-align center;
 `;

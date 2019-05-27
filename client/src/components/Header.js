@@ -10,5 +10,6 @@ const Title = styled.h1`
   font-size: 40px;
   background: linear-gradient(#4a62d8, #108ff7);
   color: #fff;
+  padding: 5% 0;
   margin: 0;
 `;

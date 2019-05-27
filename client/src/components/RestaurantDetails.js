@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import { Details } from "./styledComponents";
 
 const RestaurantDetails = props => {
   const {
@@ -39,12 +39,3 @@ const RestaurantDetails = props => {
 };
 
 export default RestaurantDetails;
-
-const Details = styled.section`
-  display: flex;
-  justify-content: center;
-  flex-flow: column;
-  margin: 0 auto;
-  text-align: center;
-  width: 70%;
-`;
