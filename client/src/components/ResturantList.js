@@ -2,6 +2,7 @@ import React from "react";
 import { Query } from "react-apollo";
 import { GET_ALL_RESTAURANTS } from "../queries";
 import { PageTitle, List, ListItem, Card } from "./styledComponents";
+import Search from "./Search";
 import Loader from "./Loader";
 import Error from "./Error";
 
@@ -14,23 +15,30 @@ const ReasturantList = ({ park }) => {
           if (loading) return <Loader />;
           if (error) return <Error error={error} />;
 
+          const names = data.getAllRestaurants.map(rest =>
+            rest.name.toLowerCase()
+          );
+
           return (
-            <List>
-              {data.getAllRestaurants.map(restaurant => (
-                <ListItem
-                  key={restaurant.id}
-                  to={{
-                    pathname: `/restaurants/${restaurant.id}`,
-                    state: restaurant
-                  }}
-                >
-                  <Card>
-                    <h1>{restaurant.name}</h1>
-                    <p>{restaurant.selection}</p>
-                  </Card>
-                </ListItem>
-              ))}
-            </List>
+            <>
+              <Search data={names} />
+              <List>
+                {data.getAllRestaurants.map(restaurant => (
+                  <ListItem
+                    key={restaurant.id}
+                    to={{
+                      pathname: `/restaurants/${restaurant.id}`,
+                      state: restaurant
+                    }}
+                  >
+                    <Card>
+                      <h1>{restaurant.name}</h1>
+                      <p>{restaurant.selection}</p>
+                    </Card>
+                  </ListItem>
+                ))}
+              </List>
+            </>
           );
         }}
       </Query>

@@ -1,6 +1,20 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
+export const Layout = styled.main`
+  width: 80%;
+  margin: 0 auto;
+`;
+
+export const Header = styled.h1`
+  text-align: center;
+  font-size: 40px;
+  background: linear-gradient(#4a62d8, #108ff7);
+  color: #fff;
+  padding: 5% 0;
+  margin: 0;
+`;
+
 export const PageTitle = styled.h1`
   text-transform: uppercase;
   text-align: center;
@@ -14,12 +28,14 @@ export const List = styled.section`
 
 export const Card = styled.article`
   background: linear-gradient(#4a62d8, #108ff7);
+  min-height: 200px;
   border: none;
-  width: 90%;
+  width: 100%;
+  height: auto;
   border-radius: 20px;
   text-align: center;
-  padding: 10px;
-  margin: 10px;
+  padding: 10px 0;
+  margin: 10px 0;
   color: #fff;
   transition: all 0.3s ease;
   &:hover {
@@ -44,18 +60,17 @@ export const Card = styled.article`
       transform:scale3D(1, 1, 1)
     }
   }
+
+  p {
+    padding: 1em;
+  }
+  
 `;
 
 export const ListItem = styled(Link)`
   color: inherit;
   text-decoration: none;
-  width: 70%;
-  @media screen and (min-width: 669px) {
-    width: 40%;
-  }
-  @media screen and (min-width: 969px) {
-    width: 30%;
-  }
+  width: 100%;
 `;
 
 export const ButtonWrap = styled.section`

@@ -9,7 +9,7 @@ module.exports.getWaitTimes = async function(park) {
   if (park) {
     const selectedPark = await new Themeparks.Parks[`${park}`]();
     const res = await selectedPark.GetWaitTimes();
-    const data = res.map(ride => {
+    const data = await res.map(ride => {
       return {
         id: ride.id,
         name: ride.name,

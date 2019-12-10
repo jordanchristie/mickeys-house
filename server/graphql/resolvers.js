@@ -1,16 +1,11 @@
+const fetch = require("node-fetch");
 const { getRestaurants, getWaitTimes } = require("./lib");
 
 async function getAttractions(park) {
-  const res = await fetch(
-    "http://touringplans.com/magic-kingdom/attractions.json"
-  );
+  const res = await fetch(`http://touringplans.com/${park}/attractions.json`);
   const data = await res.json();
 
-  return data.map(attraction => ({
-    name: attraction.name,
-    short_name: attraction.short_name,
-    permalink: attraction.permalink
-  }));
+  return data;
 }
 
 module.exports.resolvers = {

@@ -22,8 +22,8 @@ export const GET_ALL_RESTAURANTS = gql`
 `;
 
 export const GET_ALL_ATTRACTIONS = gql`
-  query {
-    getAllAttractions {
+  query($park: String!) {
+    getAllAttractions(park: $park) {
       name
       short_name
       permalink

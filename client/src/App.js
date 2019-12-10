@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Header from "./components/Header";
+import { Header, Layout } from "./components/styledComponents";
 import ParkSelect from "./components/ParkSelect";
 import ButtonSwitch from "./components/ButtonSwitch";
 import RestaurantList from "./components/ResturantList";
-import AttractionList from "./components/AttractionList";
+import Attractions from "./components/Attractions";
 import RestaurantDetails from "./components/RestaurantDetails";
 import styled, { createGlobalStyle } from "styled-components";
 
@@ -54,31 +54,32 @@ function App() {
       <Router>
         <>
           <GlobalStyle />
-          <Header />
-          <ParkSelect
-            parks={parks}
-            selectedPark={selectedPark}
-            selectPark={selectPark}
-          />
-          <ButtonSwitch
-            queryType={queryType}
-            changeQueryType={changeQueryType}
-          />
-          <Switch>
-            <Route
-              path="/restaurants"
-              render={() => <RestaurantList park={selectedPark} />}
+          <Header> Mickey's House </Header>
+          <Layout>
+            <ParkSelect
+              parks={parks}
+              selectedPark={selectedPark}
+              selectPark={selectPark}
             />
-            <Route
-              path="/restaurants/:id"
-              render={props => <RestaurantDetails {...props} />}
+            <ButtonSwitch
+              changeQueryType={changeQueryType}
+              park={selectedPark}
             />
-            <Route
-              exact
-              path="/attractions"
-              render={() => <AttractionList park={selectedPark} />}
-            />
-          </Switch>
+            <Switch>
+              <Route
+                path="/restaurants"
+                render={() => <RestaurantList park={selectedPark} />}
+              />
+              <Route
+                path="/restaurants/:id"
+                render={props => <RestaurantDetails {...props} />}
+              />
+              <Route
+                path="/attractions/:park"
+                render={() => <Attractions park={selectedPark} />}
+              />
+            </Switch>
+          </Layout>
         </>
       </Router>
     </Wrapper>

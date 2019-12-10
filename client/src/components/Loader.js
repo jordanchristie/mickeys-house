@@ -51,4 +51,6 @@ const Mouse = styled.div`
       transform: translateY(0) scale(1.1);
     }
   }
+  @media screen and (max-width: 500px) {
+  }
 `;
