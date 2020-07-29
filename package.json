@@ -7,10 +7,10 @@
   "author": "Jordan Christie <jordanchristie116@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "client": "cd client && npm start",
+    "client": "cd client && yarn start",
     "server": "server/index.js",
-    "dev": "concurrently \"npm run server\" \"npm run client\" ",
-    "build": "npm run server && cd client && npm run build"
+    "dev": "concurrently \"yarn run server\" \"yarn run client\" ",
+    "build": "yarn run server && cd client && yarn run build"
   },
   "dependencies": {
     "apollo-server": "^2.5.0",
