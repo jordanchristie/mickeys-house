@@ -23,26 +23,26 @@ const parks = [
     id: 1,
     name: "Magic Kingdom",
     permalink: "magic-kingdom",
-    parkCall: "WaltDisneyWorldMagicKingdom"
+    parkCall: "WaltDisneyWorldMagicKingdom",
   },
   {
     id: 2,
     name: "Epcot",
     permalink: "epcot",
-    parkCall: "WaltDisneyWorldEpcot"
+    parkCall: "WaltDisneyWorldEpcot",
   },
   {
     id: 3,
     name: "Animal Kingdom",
     permalink: "animal-kingdom",
-    parkCall: "WaltDisneyWorldAnimalKingdom"
+    parkCall: "WaltDisneyWorldAnimalKingdom",
   },
   {
     id: 4,
     name: "Hollywood Studios",
     permalink: "hollywood-studios",
-    parkCall: "WaltDisneyWorldHollywoodStudios"
-  }
+    parkCall: "WaltDisneyWorldHollywoodStudios",
+  },
 ];
 
 function App() {
@@ -72,7 +72,7 @@ function App() {
               />
               <Route
                 path="/restaurants/:id"
-                render={props => <RestaurantDetails {...props} />}
+                render={(props) => <RestaurantDetails {...props} />}
               />
               <Route
                 path="/attractions/:park"
