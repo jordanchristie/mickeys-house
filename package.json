@@ -8,9 +8,9 @@
   "license": "MIT",
   "scripts": {
     "client": "cd client && yarn start",
-    "server": "server/index.js",
+    "start": "server/index.js",
     "dev": "concurrently \"yarn run server\" \"yarn run client\" ",
-    "build": "yarn run server && cd client && yarn run build"
+    "build": "yarn run start && cd client && yarn run build"
   },
   "dependencies": {
     "apollo-server": "^2.5.0",
