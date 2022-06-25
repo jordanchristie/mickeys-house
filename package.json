@@ -17,7 +17,7 @@
     "concurrently": "^4.1.0",
     "cors": "^2.8.5",
     "graphql": "^14.3.0",
-    "node-fetch": "^2.5.0",
+    "node-fetch": "^2.6.7",
     "themeparks": "^4.8.0"
   }
 }
